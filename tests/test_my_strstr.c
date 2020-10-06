@@ -1,67 +1,47 @@
 /*
 ** EPITECH PROJECT, 2020
-** B-CPE-100-RUN-1-1-cpoolday06-khadafi.hadjee-issouf
+** test_my_revstr
 ** File description:
-** test_my_strstr
+** testing my_strstr
 */
 
 #include <criterion/criterion.h>
-#include <criterion/redirect.h>
+#include <string.h>
 
-char *my_strstr(char *, char const *);
+char *my_strstr(char *str, char const *to_find);
 
-Test(my_strstr, correct)
+Test(my_strstr, is_it_the_same_as_strstr)
 {
-    char *str = "je dois chercher une chaine de caractere dans cette chaine de caractere";
-    char *r = my_strstr(str, "dois");
+    char *str1 = "Hello je suis trop beau";
+    char *answer_mine1 = my_strstr(str1, "je");
+    char *answer_strstr1 = strstr(str1, "je");
 
-    cr_assert_eq(r, str + 3);
+    cr_assert_str_eq(answer_mine1, answer_strstr1);
 }
 
-Test(my_strstr, without_occurence)
+Test(my_strstr2, if_it_does_not_find_anything)
 {
-    char *str = "je dois chercher une chaine de caractere dans cette chaine de caractere";
-    char *r = my_strstr(str, "salut");
+    char *str2 = "Bonjour wow";
+    char *answer_mine2 = my_strstr(str2, "lihafhje");
+    char *answer_strstr2 = strstr(str2, "lihafhje");
 
-    cr_assert_eq(NULL, r);
+    cr_assert_eq(answer_mine2, answer_strstr2);
 }
 
-Test(my_strstr, with_multiple_occurence)
+Test(my_strstr3, if_the_second_string_is_empty)
 {
-    char *str = "je dois chercher une chaine de caractere dans cette chaine de caractere";
-    char *r = my_strstr(str, "chaine");
+    char *str3 = "Bonjour wow";
+    char *answer_mine3 = my_strstr(str3, "");
+    char *answer_strstr3 = strstr(str3, "");
 
-    cr_assert_eq(r, str + 21);
+    cr_assert_eq(answer_mine3, answer_strstr3);
 }
 
-Test(my_strstr, empty_str)
+Test(my_strstr4, if_the_first_string_is_empty)
 {
-    char *str = "";
-    char *r = my_strstr(str, "dois");
+    char *str4 = "";
+    char *answer_mine4 = my_strstr(str4, "lol");
+    char *answer_strstr4 = strstr(str4, "lol");
 
-    cr_assert_eq(r, NULL);
-}
-
-Test(my_strstr, ocurrence_is_the_first)
-{
-    char *str = "je dois chercher une chaine de caractere dans cette chaine de caractere";
-    char *r = my_strstr(str, "je");
-
-    cr_assert_eq(r, str);
-}
-
-Test(my_strstr, occurence_is_the_last)
-{
-    char *str = "je dois chercher une chaine de caratere dans cette chaine de caractere";
-    char *r = my_strstr(str, "ctere");
-
-    cr_assert_eq(r, str + 65);
-}
-
-Test(my_strstr, find_empty_string)
-{
-    char *str = "on va charcher une empty string ici";
-    char *r = my_strstr(str, "");
-
-    cr_assert_eq(r, str);
+    cr_assert_eq(answer_mine4, answer_strstr4);
 }

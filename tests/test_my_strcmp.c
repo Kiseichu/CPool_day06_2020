@@ -1,39 +1,43 @@
 /*
 ** EPITECH PROJECT, 2020
-** B-CPE-100-RUN-1-1-cpoolday06-khadafi.hadjee-issouf
+** my_strncmp
 ** File description:
-** test_my_strcmp
+** test my strncmp
 */
 
+#include <string.h>
 #include <criterion/criterion.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
 
+int my_strcmp(char const *s1, char const *s2);
 
-int my_strcmp(char const *, char const *);
-
-Test(my_strcmp, test_00)
+Test(my_strcmp, test_my_strcmp_with_the_real_function)
 {
-    cr_expect_eq(my_strcmp("abcd", "bacd"), -1);
+    char *str = "Hellijfealfa";
+    char *str2 = "Hellinejnfjakf";
+
+    cr_assert_eq(my_strcmp(str, str2), strcmp(str, str2));
 }
 
-Test(my_strcmp, test_01)
+Test(my_strcmp, if_my_strcmp_with_empty_s2)
 {
-    cr_expect_eq(my_strcmp("Hello World\t\n", "Hello World\t\n"), 0);
+    char *str = "Hello";
+    char *str2 = "";
+
+    cr_assert_eq(my_strcmp(str, str2), strcmp(str, str2));
 }
 
-Test(my_strcmp, test_02)
+Test(my_strcmp, if_my_strcmp_with_empty_s1)
 {
-    cr_expect_eq(my_strcmp("    ", "     "), 0);
+    char *str = "";
+    char *str2 = "Hello";
+
+    cr_assert_eq(my_strcmp(str, str2), strcmp(str, str2));
 }
 
-Test(my_strcmp, test_03)
+Test(my_strcmp, if_my_strcmp_with_2chars)
 {
-    cr_expect_eq(my_strcmp("bacd", "abcd"), 1);
-}
+    char *str = "JohnDoe";
+    char *str2 = "Doe";
 
-Test(my_strcmp, test_04)
-{
-    cr_expect_eq(my_strcmp("djizad123", "djizad123"), 0);
+    cr_assert_eq(my_strcmp(str, str2), strcmp(str, str2));
 }

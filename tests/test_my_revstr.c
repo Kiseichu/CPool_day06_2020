@@ -1,18 +1,19 @@
 /*
 ** EPITECH PROJECT, 2020
-** B-CPE-100-RUN-1-1-cpoolday06-khadafi.hadjee-issouf
-** File description:
 ** test_my_revstr
+** File description:
+** testing my_rev_str
 */
 
 #include <criterion/criterion.h>
-#include <criterion/redirect.h>
+#include <string.h>
 
-char *my_revstr(char *);
+char *my_revstr(char *str);
 
-Test(my_revstr, rev_the_str)
+Test(my_rev_str, is_it_reversing_correctly)
 {
-    char str[6] = "Hello";
+    char *str1 = "Hello";
+    char *str2 = my_revstr(strdup(str1));
 
-    cr_assert_str_eq(my_revstr(strdup(str)), "olleH");
+    cr_assert_str_eq(str2, "olleH");
 }
