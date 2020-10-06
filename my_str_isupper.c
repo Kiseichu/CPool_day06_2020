@@ -5,7 +5,7 @@
 ** my_str_isup
 */
 
-int my_str_isup(char const *str)
+int my_str_isupper(char const *str)
 {
     int i = 0;
 
