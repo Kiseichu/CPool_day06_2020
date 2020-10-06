@@ -23,9 +23,10 @@ Test(put_nbr_base_empty, test_my_getnbr_with_empty, .init = cr_redirect_stdout)
 {
     char *hexa = "";
     int nb = 675;
+    int ret = 0;
 
-    my_putnbr_base(nb, hexa);
-    cr_assert_stdout_eq_str('\0');
+    ret = my_putnbr_base(nb, hexa);
+    cr_assert_eq(ret , 0);
 }
 
 Test(put_nbr_basedec, test_my_getnbr_with_decimals, .init = cr_redirect_stdout)

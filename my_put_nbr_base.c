@@ -19,6 +19,8 @@ int my_putnbr_base(int nbr, char *base)
 {
     int base_size = my_strlen(base);
 
+    if (base[0] == '\0')
+        return 0;
     if (base_size < 2)
         return 0;
     if (nbr < 0) {
