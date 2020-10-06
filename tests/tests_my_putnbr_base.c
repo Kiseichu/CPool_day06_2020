@@ -8,6 +8,7 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
+
 int my_putnbr_base(int nb, char const *base);
 
 Test(put_nbr_baseA, test_my_getnbr, .init = cr_redirect_stdout)
